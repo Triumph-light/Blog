@@ -15,6 +15,8 @@ app.all('*', function (req, res, next) {
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
+app.use(express.static(path.join(__dirname, '../docs/.vitepress/dist')))
+
 app.post('/saveEditor',async (req,res)=>{
     const { title, link, content} = req.body
     const fileName = `${link}.md`
@@ -69,7 +71,7 @@ app.post('/saveEditor',async (req,res)=>{
       
         // // 最后使用nodejs的child_process，切换vitepress根目录，执行build
         new Promise((resolve,reject)=>{
-            const app = spawn('npm run docs:dev', [],{
+            const app = spawn('npm run docs:build', [],{
                 cwd: path.resolve(__dirname,'../'), // 执行命令的路径
                 stdio: 'inherit', // 输出共享给父进程
                 shell: true
