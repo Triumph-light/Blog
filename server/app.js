@@ -82,8 +82,13 @@ app.post('/saveEditor',async (req,res)=>{
     })
 })
 
-app.listen(3008,()=>{
-    console.log("run at http://localhost:3008");
+app.get('/home', (req, res) => {
+  res.status(200).json('Welcome, your app is working well');
 })
+
+
+app.listen(8081, () => {
+  console.log(`Server running at http://localhost:8081`);
+});
 
 module.exports = app;
