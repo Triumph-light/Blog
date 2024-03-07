@@ -1,5 +1,7 @@
 import { defineConfig } from 'vitepress'
 
+import sideBarJson from './config/sidebar.json'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "My personal blog",
@@ -7,19 +9,12 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: '首页', link: '/' },
+      { text: '文章', link: '/essay/javascript/index.md' },
+      { text: '编辑', link: '/editor/editor.md' }
     ],
 
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
-        ]
-      }
-    ],
+    sidebar: sideBarJson,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
