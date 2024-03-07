@@ -1,9 +1,9 @@
-const express = require('express');
-const { spawn } = require('node:child_process');
-const fs = require("node:fs")
-const path = require("node:path")
-const app = express();
+import express from 'express';
+import path from 'path';
+import fs from 'fs'
+import { spawn } from 'child_process'
 
+const app = express();
 //设置允许跨域访问该服务.
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
