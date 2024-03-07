@@ -2,8 +2,7 @@
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs",
-    "build": "node ./server/app.js"
+    "docs:preview": "vitepress preview docs"
   },
   "dependencies": {
     "@vercel/node": "^3.0.21",
