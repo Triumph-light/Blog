@@ -10,15 +10,15 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 //设置允许跨域访问该服务.
-app.all('*', function (req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    res.header('Access-Control-Allow-Methods', '*');
-    next();
+app.all("*", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "*");
+  next();
 });
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(join(__dirname, './docs/.vitepress/dist')))
 
@@ -30,8 +30,8 @@ app.post('/saveEditor',async (req,res)=>{
     // 需要保存的当前文件路径
     const filePath = join(toFilePath, fileName)
 
-    // 拼接文档frontmatter
-    let markdown = `
+  // 拼接文档frontmatter
+  let markdown = `
         ---
         title: ${title}
         author: Triumph-Light
@@ -40,14 +40,11 @@ app.post('/saveEditor',async (req,res)=>{
         tags:
             - 记录
         ---
-        ${content}`
+        ${content}`;
 
     writeFile(filePath, markdown, 'utf-8',(err) => {
         if (err) {
-          res.send({
-            "code": 200,
-            "message": err
-          })
+          console.error(err);
         }
       
         // 处理vitepress的sidebar，我的vitepress把sidebar抽离出了一个json文件
@@ -91,6 +88,9 @@ app.get('/home', (req, res) => {
   res.status(200).json('Welcome, your app is working well');
 })
 
+app.get("/home", (req, res) => {
+  res.status(200).json("Welcome, your app is working well");
+});
 
 app.listen(8081, () => {
   console.log(`Server running at http://localhost:8081`);
