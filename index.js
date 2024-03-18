@@ -1,9 +1,14 @@
 import express from 'express';
-import path from 'path';
-import fs from 'fs'
-import { spawn } from 'child_process'
+import { spawn } from 'node:child_process';
+import { readFile, writeFile } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve, join } from 'node:path';
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 //设置允许跨域访问该服务.
 app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -15,15 +20,15 @@ app.all('*', function (req, res, next) {
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
-app.use(express.static(path.join(__dirname, './docs/.vitepress/dist')))
+app.use(express.static(join(__dirname, './docs/.vitepress/dist')))
 
 app.post('/saveEditor',async (req,res)=>{
     const { title, link, content} = req.body
     const fileName = `${link}.md`
     // vitepress对应的文件夹
-    const toFilePath = path.resolve(__dirname, './docs/essay');
+    const toFilePath = resolve(__dirname, './docs/essay');
     // 需要保存的当前文件路径
-    const filePath = path.join(toFilePath, fileName)
+    const filePath = join(toFilePath, fileName)
 
     // 拼接文档frontmatter
     let markdown = `
@@ -37,7 +42,7 @@ app.post('/saveEditor',async (req,res)=>{
         ---
         ${content}`
 
-    fs.writeFile(filePath, markdown, 'utf-8',(err) => {
+    writeFile(filePath, markdown, 'utf-8',(err) => {
         if (err) {
           res.send({
             "code": 200,
@@ -46,9 +51,9 @@ app.post('/saveEditor',async (req,res)=>{
         }
       
         // 处理vitepress的sidebar，我的vitepress把sidebar抽离出了一个json文件
-        const sidebarPath = path.resolve(__dirname, './docs/.vitepress/config/sidebar.json');
+        const sidebarPath = resolve(__dirname, './docs/.vitepress/config/sidebar.json');
         // 读取文件内容
-        fs.readFile(sidebarPath, 'utf8', (err,data) => {
+        readFile(sidebarPath, 'utf8', (err,data) => {
           if (err) {
             console.error('Error reading file:',err);
             return;
@@ -62,7 +67,7 @@ app.post('/saveEditor',async (req,res)=>{
           
           // 把当前文件信息存储到sidebar中，并覆原文件
           blogs.push({ text: title, link:link })
-          fs.writeFile(sidebarPath, JSON.stringify(sidebar), 'utf-8', (err) => {
+          writeFile(sidebarPath, JSON.stringify(sidebar), 'utf-8', (err) => {
             if (err) {
               console.error(err)
             }
@@ -72,7 +77,7 @@ app.post('/saveEditor',async (req,res)=>{
         // // 最后使用nodejs的child_process，切换vitepress根目录，执行build
         new Promise((resolve,reject)=>{
             const app = spawn('npm run docs:build', [],{
-                cwd: path.resolve(__dirname,'../'), // 执行命令的路径
+                cwd: resolve(__dirname,'../'), // 执行命令的路径
                 stdio: 'inherit', // 输出共享给父进程
                 shell: true
             });
