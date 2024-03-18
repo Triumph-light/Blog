@@ -88,10 +88,6 @@ app.get('/home', (req, res) => {
   res.status(200).json('Welcome, your app is working well');
 })
 
-app.get("/home", (req, res) => {
-  res.status(200).json("Welcome, your app is working well");
-});
-
 app.listen(8081, () => {
   console.log(`Server running at http://localhost:8081`);
 });
