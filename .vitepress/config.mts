@@ -16,10 +16,10 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Blog',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: '', link: '/Blog/index' },
+          { text: 'eslint-config', link: '/Blog/eslint-config' }
         ]
       }
     ],
