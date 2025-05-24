@@ -1,4 +1,8 @@
 {
+  "name": "blog",
+  "author": {
+    "name": "Triumph-light"
+  },
   "scripts": {
     "docs:dev": "vitepress dev",
     "docs:build": "vitepress build",

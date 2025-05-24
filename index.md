@@ -13,6 +13,8 @@ hero:
     - theme: alt
       text: API Examples
       link: /api-examples
+    - text: Blog
+      link: /Blog/index.md
 
 features:
   - title: Feature A
