@@ -2,9 +2,14 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: 'zh-CN',
   title: "Triumph",
   description: "A VitePress Site",
+  head: [
+    ['link', { rel: 'icon', href: './assets/logo.png' }]
+  ],
   themeConfig: {
+    logo: './assets/logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
