@@ -6,10 +6,10 @@ export default defineConfig({
   title: "Triumph",
   description: "A VitePress Site",
   head: [
-    ['link', { rel: 'icon', href: './assets/logo.png' }]
+    ['link', { rel: 'icon', href: '/logo.png' }]
   ],
   themeConfig: {
-    logo: './assets/logo.png',
+    logo: '/logo.png',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
