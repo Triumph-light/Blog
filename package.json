@@ -10,5 +10,9 @@
   },
   "dependencies": {
     "vitepress": "^1.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "scss": "^0.2.4"
   }
 }

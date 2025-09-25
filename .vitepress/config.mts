@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import { fileURLToPath, URL } from 'node:url'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -32,5 +33,23 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Triumph-light' }
     ]
+  },
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPNav\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/CustomNav.vue', import.meta.url)
+          )
+        },
+        {
+          find: /^.*\/VPHomeHero\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./components/HomeHero.vue', import.meta.url)
+          )
+        }
+      ]
+    }
   }
 })
