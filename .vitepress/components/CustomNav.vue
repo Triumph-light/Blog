@@ -3,7 +3,8 @@
     <img class="logo" src="/logo.png">
 
     </img>
-    <div class="more"></div>
+    <div class="btn-group">
+    </div>
   </div>
   <!-- 毛玻璃导航 -->
   <nav class="glass-nav" :class="{ 'scrolled': isScrolled }">
@@ -41,6 +42,10 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
 })
 
+const btnGroup = [{
+  text: 'GitHub',
+  link: ''
+}]
 </script>
 
 <style lang="scss" scoped>
@@ -70,6 +75,8 @@ onUnmounted(() => {
   background: rgba(255, 255, 255, 0.14);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   backdrop-filter: blur(12px) saturate(120%);
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
 
 
   &.scrolled {

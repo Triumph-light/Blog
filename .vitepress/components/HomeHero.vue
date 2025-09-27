@@ -11,11 +11,17 @@
     <div class="sub-title">
       Now working at DiDi
     </div>
+    <SocialBtnGroup github="https://github.com/Triumph-light" email="2495685883@qq.com"></SocialBtnGroup>
   </div>
 </template>
 
+
+
+
 <script lang='ts' setup>
-import { onUnmounted, ref, onMounted, onBeforeUnmount } from 'vue';
+import SocialBtnGroup from './SocialBtnGroup.vue';
+import TimeLine from './TimeLine.vue'
+import { onUnmounted, ref, onMounted } from 'vue';
 
 const homeTitle = ref('');
 
@@ -47,18 +53,33 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
+@font-face {
+  font-family: "阿里妈妈刀隶体 Regular";
+  font-weight: 400;
+  src: url("//at.alicdn.com/wf/webfont/V6fFGwK23EIR/dQTLusKrAkZz.woff2") format("woff2"),
+    url("//at.alicdn.com/wf/webfont/V6fFGwK23EIR/kP6E0f3PUfwu.woff") format("woff");
+  font-variation-settings: normal;
+  font-display: swap;
+}
+
 .home-hero {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - (var(--vp-nav-height) * 2));
+  height: calc(80vh - (var(--vp-nav-height) * 2));
 }
 
 .avatar {
   display: inline-block;
   border-radius: 50%;
   overflow: hidden;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: rotateY(30deg) rotateZ(30deg);
+    transition: all 0.5s;
+  }
 }
 
 .home-title {
@@ -70,6 +91,8 @@ onUnmounted(() => {
 
 .home-title_second {
   margin-top: 15px;
+  font-family: '阿里妈妈刀隶体 Regular';
+  font-size: 30px;
 }
 
 .title-cursor {
@@ -84,5 +107,13 @@ onUnmounted(() => {
   100% {
     opacity: 0;
   }
+}
+
+.sub-title {
+  margin-top: 1rem;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
 }
 </style>
