@@ -8,29 +8,41 @@
         <span class="title-cursor">|</span>
       </div>
     </div>
+    <div class="sub-title">
+      Now working at DiDi
+    </div>
   </div>
 </template>
 
 <script lang='ts' setup>
-import { onUnmounted, ref } from 'vue';
+import { onUnmounted, ref, onMounted, onBeforeUnmount } from 'vue';
 
 const homeTitle = ref('');
 
 const tapStr = 'Triumph-Light Blog'
 const idx = ref(0)
-const timer = ref()
-timer.value = setInterval(() => {
-  if (idx.value === tapStr.length) {
-    idx.value = 0
-    homeTitle.value = ''
-  } else {
+let timer: NodeJS.Timeout | undefined
+function typeWriter() {
+  if (idx.value < tapStr.length) {
     homeTitle.value += tapStr[idx.value]
     idx.value++
+    timer = setTimeout(typeWriter, 200) // 递归调用
+  } else {
+    // 等一会儿再清空重来
+    timer = setTimeout(() => {
+      idx.value = 0
+      homeTitle.value = ''
+      typeWriter()
+    }, 1000)
   }
-}, 200)
+}
+
+onMounted(() => {
+  typeWriter()
+})
 
 onUnmounted(() => {
-  clearTimeout(timer.value)
+  clearTimeout(timer)
 })
 </script>
 
