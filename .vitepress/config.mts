@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
+import sidebar from './configs/siderbar'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,19 +17,11 @@ export default defineConfig({
       { text: '首页', link: '/' },
       {
         text: 'Blog',
-        link: '/Blog/index.md'
+        link:  sidebar['/Blog/'][0].base + sidebar['/Blog/'][0].items[0].link
       }
     ],
 
-    sidebar: [
-      {
-        text: 'Blog',
-        items: [
-          { text: '', link: '/Blog/index' },
-          { text: 'eslint-config', link: '/Blog/eslint-config' }
-        ]
-      }
-    ],
+    sidebar,
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Triumph-light' }
