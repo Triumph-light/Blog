@@ -8,6 +8,9 @@ hero:
     - theme: brand
       text: 博客
       link: /Blog/index.md
+    - theme: brand
+      text: Vue源码
+      link: /vue/ssr/index.md
 
 features:
   - title: react-repl

@@ -89,7 +89,7 @@ const btnGroup = [{
   }
 
   span {
-    width: 90px;
+    min-width: 90px;
     height: 36px;
     padding: 10px 20px;
     margin: 8px 5px;
