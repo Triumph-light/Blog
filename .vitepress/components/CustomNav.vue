@@ -1,8 +1,6 @@
 <template>
   <div class="nav-header">
-    <img class="logo" src="/logo.png">
-
-    </img>
+    <img class="logo" src="/logo.png" />
     <div class="btn-group">
     </div>
   </div>
@@ -91,7 +89,7 @@ const btnGroup = [{
   span {
     min-width: 90px;
     height: 36px;
-    padding: 10px 20px;
+    padding: 10px 5px;
     margin: 8px 5px;
     text-align: center;
     line-height: 16px;

@@ -2,27 +2,19 @@ import { defineConfig } from "vitepress";
 import { fileURLToPath, URL } from "node:url";
 // 注释掉原来的导入
 import { blogConfigs, vueConfigs } from "../doc-config/sidebar-config";
+import { navConfigs } from "./doc-config/nav-configs";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   lang: "zh-CN",
   title: "Triumph",
   description: "A VitePress Site",
+  lastUpdated: true,
   head: [["link", { rel: "icon", href: "/logo.png" }]],
   themeConfig: {
     logo: "/logo.png",
     // https://vitepress.dev/reference/default-theme-config
-    nav: [
-      { text: "首页", link: "/" },
-      {
-        text: "Blog",
-        link: "/Blog/index.md",
-      },
-      {
-        text: "Vue源码",
-        link: "/vue/ssr/index.md",
-      },
-    ],
+    nav: navConfigs,
 
     // 动态侧边栏配置
     sidebar: {
