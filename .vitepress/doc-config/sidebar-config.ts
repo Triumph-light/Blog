@@ -1,5 +1,3 @@
-import { link } from "fs";
-
 export const blogConfigs = [
   {
     text: "Blog",
@@ -26,8 +24,12 @@ export const vueConfigs = [
             link: "/vue/ssr/index",
           },
           {
+            text: "孤岛架构",
+            link: "/vue/ssr/island",
+          },
+          {
             text: "水合过程",
-            link: "/vue/ssr/hydration",
+            link: "/vue/ssr/hydrate",
           },
         ],
       },
