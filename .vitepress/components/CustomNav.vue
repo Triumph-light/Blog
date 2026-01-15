@@ -78,7 +78,7 @@ const btnGroup = [{
 
 
   &.scrolled {
-    position: sticky;
+    position: fixed;
     top: var(--vp-nav-height);
     z-index: var(--vp-z-index-nav);
     width: fit-content;
