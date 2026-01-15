@@ -4,6 +4,10 @@ export const blogConfigs = [
     items: [
       { text: "首页", link: "/Blog/index" },
       { text: "eslint-config", link: "/Blog/eslint-config" },
+      { 
+        text: "聊聊mpx-language-tools", 
+        link: "/Blog/mpx-language-tools/index"
+      },
     ],
   },
 ];
