@@ -52,6 +52,8 @@ const btnGroup = [{
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 
   .logo {
     display: inline-block;
@@ -65,11 +67,11 @@ const btnGroup = [{
   position: absolute;
   top: 0px;
   left: 50%;
+  width: 100%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  border-radius: 12px;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.14);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   backdrop-filter: blur(12px) saturate(120%);
@@ -83,6 +85,7 @@ const btnGroup = [{
     z-index: var(--vp-z-index-nav);
     width: fit-content;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   }
 
