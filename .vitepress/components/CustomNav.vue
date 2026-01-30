@@ -1,12 +1,11 @@
 <template>
-  <div class="nav-header">
-    <img class="logo" src="/logo.png" />
-    <div class="btn-group">
-    </div>
-  </div>
   <!-- 毛玻璃导航 -->
   <nav class="glass-nav" :class="{ 'scrolled': isScrolled }">
-    <span v-for="nav in navList" @click="() => gotoPage(nav.link)">{{ nav.text }}</span>
+    <img v-if="!isScrolled" class="logo" src="/logo.png" />
+    <div class="nav">
+      <span v-for="nav in navList" @click="() => gotoPage(nav.link)">{{ nav.text }}</span>
+    </div>
+    <div v-if="!isScrolled" class="btn-group"></div>
   </nav>
 </template>
 
@@ -53,13 +52,7 @@ const btnGroup = [{
   align-items: center;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
-
-  .logo {
-    display: inline-block;
-    height: 52px;
-    width: 52px;
-  }
+  z-index: 0;
 }
 
 /* 毛玻璃导航 */
@@ -71,13 +64,18 @@ const btnGroup = [{
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: rgba(255, 255, 255, 0.14);
   -webkit-backdrop-filter: blur(12px) saturate(120%);
   backdrop-filter: blur(12px) saturate(120%);
   font-style: italic;
   font-family: 'Cormorant Garamond', serif;
 
+  .logo {
+    display: inline-block;
+    height: 52px;
+    width: 52px;
+  }
 
   &.scrolled {
     position: fixed;
@@ -90,6 +88,7 @@ const btnGroup = [{
   }
 
   span {
+    display: inline-block;
     min-width: 90px;
     height: 36px;
     padding: 10px 5px;
