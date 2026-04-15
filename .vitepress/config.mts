@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 import { fileURLToPath, URL } from "node:url";
 // 注释掉原来的导入
-import { blogConfigs, vueConfigs } from "./doc-config/sidebar-config";
+import { aiConfigs, blogConfigs, vueConfigs } from "./doc-config/sidebar-config";
 import { navConfigs } from "./doc-config/nav-configs";
 
 // https://vitepress.dev/reference/site-config
@@ -20,6 +20,7 @@ export default defineConfig({
     sidebar: {
       "/Blog/": blogConfigs,
       "/vue/": vueConfigs,
+      "/ai/": aiConfigs,
     },
 
     socialLinks: [{ icon: "github", link: "https://github.com/Triumph-light" }],

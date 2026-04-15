@@ -40,3 +40,15 @@ export const vueConfigs = [
     ],
   },
 ];
+
+export const aiConfigs = [
+  {
+    text: "AI相关",
+    items: [
+      {
+        text: "skill 知识",
+        link: "/ai/skill-knowledge",
+      },
+    ],
+  },
+];
