@@ -10,6 +10,6 @@ export const navConfigs = [
   },
   {
     text: "AI相关",
-    link: "/ai/skill-knowledge.md",
+    link: "/ai/vibe-coding.md",
   },
 ];

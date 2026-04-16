@@ -22,7 +22,6 @@ export default defineConfig({
       "/vue/": vueConfigs,
       "/ai/": aiConfigs,
     },
-
     socialLinks: [{ icon: "github", link: "https://github.com/Triumph-light" }],
   },
   vite: {

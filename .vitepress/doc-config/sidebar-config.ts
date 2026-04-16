@@ -46,6 +46,10 @@ export const aiConfigs = [
     text: "AI相关",
     items: [
       {
+        text: "vibe-coding",
+        link: "/ai/vibe-coding",
+      },
+      {
         text: "skill 知识",
         link: "/ai/skill-knowledge",
       },
