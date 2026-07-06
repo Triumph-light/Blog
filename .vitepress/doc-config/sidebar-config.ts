@@ -53,6 +53,10 @@ export const aiConfigs = [
         text: "skill 知识",
         link: "/ai/skill-knowledge",
       },
+      {
+        text: "harness",
+        link: "/ai/harness",
+      },
     ],
   },
 ];
